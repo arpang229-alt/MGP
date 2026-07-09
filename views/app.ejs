@@ -21,11 +21,16 @@
 
         /* Sidebar */
         .sidebar {
-            position: fixed; top: 0; left: 0; width: 280px; height: 100vh;
+            position: fixed; top: 0px; left: -250px; width: 280px; height: 100vh;
             background: var(--sidebar-bg); padding: 25px 20px;
             overflow-y: auto; z-index: 1000; display: flex; flex-direction: column;
         }
-        .brand-box { display: flex; align-items: center; gap: 12px; margin-bottom: 35px; padding: 0 8px; }
+        .sidebar.active{left: 0;}
+        .sidebar a{
+            background: #333339;
+        }
+
+        .brand-box { display: flex; align-items: center; gap: 12px; margin-bottom: 35px;margin-top: 20px; }
         .brand-logo {
             width: 42px; height: 42px; border-radius: 12px; flex-shrink: 0;
             background: linear-gradient(135deg, #FF9C00, #FFC048);
@@ -42,6 +47,14 @@
             color: #B8B9CB; font-size: 14px; padding: 11px 14px; border-radius: 12px;
             display: flex; align-items: center; gap: 12px; margin-bottom: 4px; transition: all .2s;
         }
+        .menu{
+       top: 10px; left: 20px; background: var(--sidebar-bg); color: #fff;
+            padding: 8px 40px; border-radius: 8px; cursor: pointer; z-index: 1100;
+        }
+        .close{
+            position: absolute; top: 10px; right: 10px; background: var(--sidebar-bg); color: #fff;
+            padding: 4px 8px; border-radius: 8px; cursor: pointer,;
+        }
         .sidebar .nav-link i { width: 18px; text-align: center; }
         .sidebar .nav-link:hover { background: rgba(43, 45, 251, 0.25); color: #fff; }
         .sidebar .nav-link.active { background: var(--sidebar-hover); color: #fff; }
@@ -55,7 +68,7 @@
         .trophy-card i { font-size: 26px; color: #FFC048; margin-bottom: 8px; }
 
         /* Main */
-        .main-content { margin-left: 280px; padding: 25px 30px; }
+        .main-content { margin-left: 0px; padding: 25px 30px; }
         .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 25px; flex-wrap: wrap; gap: 15px; }
         .page-title { font-weight: 700; text-transform: capitalize; margin: 0; }
         .welcome-text { color: var(--text-muted); font-size: 13px; }
@@ -112,11 +125,15 @@
 <body>
 
 <!-- ================= SIDEBAR ================= -->
-<div class="sidebar">
+<div class="menu"onclick="openSidebar()">☰
+</div>
+<div id = "sidebar" class="sidebar">
+    <span class="close"onclick="closeSidebar()">X
+</span>
     <div class="brand-box">
-        <div class="brand-logo">M</div>
+        <div class="brand-logo">MGP</div>
         <div class="brand-text">
-            <h6>MGP</h6>
+            <h6><%= user.role %></h6>
             <small>Management System</small>
         </div>
     </div>
@@ -218,6 +235,7 @@
                     <h3><%= typeof total_courses !== 'undefined' ? total_courses : 12 %></h3>
                     <small>Total Courses</small>
                 </div>
+                
             </div>
             <div class="col">
                 <div class="metric-card bg-green">
@@ -812,6 +830,12 @@
             plugins: { legend: { position: 'bottom' } }
         }
     });
+    function openSidebar() {
+        document.getElementById('sidebar').classList.add('active');
+    }
+    function closeSidebar() {
+       document.getElementById('sidebar').classList.remove('active');
+    }
 </script>
 <% } %>
 
