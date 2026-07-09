@@ -92,7 +92,7 @@ async function initAdmin() {
                 password: 'mgpmur731222',
                 role: 'admin'
             });
-            console.log('Default admin created: admin@gmail.com / 123456');
+            console.log('Default admin created: admina@gmail.com / mgpmur731222');
         }
     } catch (err) {
         console.error('initAdmin error:', err);
