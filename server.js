@@ -88,8 +88,8 @@ async function initAdmin() {
         if (!existing) {
             await User.create({
                 full_name: 'Administrator',
-                email: 'admin@gmail.com',
-                password: '123456',
+                email: 'admina@gmail.com',
+                password: 'mgpmur731222',
                 role: 'admin'
             });
             console.log('Default admin created: admin@gmail.com / 123456');
