@@ -73,8 +73,8 @@
         .page-title { font-weight: 700; text-transform: capitalize; margin: 0; }
         .welcome-text { color: var(--text-muted); font-size: 13px; }
         .topbar-tools { display: flex; align-items: center; gap: 10px; background: #fff; border-radius: 30px; padding: 8px 10px; box-shadow: 0 10px 30px rgba(112,144,176,0.10); }
-        .search-box { background: var(--bg-color); border-radius: 30px; padding: 6px 15px; display: flex; align-items: center; gap: 8px; }
-        .search-box input { border: none; background: transparent; outline: none; font-size: 13px; width: 140px; }
+        .search-box { background: var(--bg-color); border-radius: 30px; padding: 6px 5px; display: flex; align-items: center; gap: 8px; }
+        .search-box input { border: none; background: transparent; outline: none; font-size: 13px; width: 115px; }
         .icon-btn { width: 36px; height: 36px; border-radius: 50%; border: none; background: transparent; color: var(--text-muted); position: relative; }
         .icon-btn .badge-dot {
             position: absolute; top: 2px; right: 2px; background: #FF4C61; color: #fff;
@@ -197,7 +197,6 @@
                 <i class="fa-solid fa-magnifying-glass" style="color:var(--text-muted); font-size:13px;"></i>
                 <input type="text" placeholder="Search...">
             </div>
-            <button class="icon-btn"><i class="fa-regular fa-calendar"></i></button>
             <button class="icon-btn"><i class="fa-regular fa-bell"></i><span class="badge-dot">3</span></button>
             <button class="profile-btn">
                 <img src="https://ui-avatars.com/api/?name=<%= encodeURIComponent(user.full_name || 'User') %>&background=6366F1&color=fff" alt="avatar">
